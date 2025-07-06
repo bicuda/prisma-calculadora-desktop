@@ -1,0 +1,65 @@
+{
+  "name": "prisma",
+  "version": "1.0.3",
+  "description": "Calculadora React com Cotação em Tempo real para Desktop",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bicuda/prisma-calculadora-desktop.git"
+  },
+  "scripts": {
+    "start": "node build.js && electron .",
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "npm run build && electron-builder --publish always"
+  },
+  "keywords": [
+    "react",
+    "electron",
+    "crypto",
+    "calculator"
+  ],
+  "author": "Prisma",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "electron-log": "^5.1.5",
+    "electron-updater": "^6.2.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.25.5",
+    "lucide-react": "^0.407.0",
+    "react": "^19.0.0-rc.0",
+    "react-dom": "^19.0.0-rc.0"
+  },
+  "build": {
+    "appId": "com.prismarb.calculator",
+    "productName": "Prisma Calculadora Arb",
+    "files": [
+      "dist/",
+      "main.js",
+      "preload.js",
+      "index.html",
+      "index.css",
+      "assets/"
+    ],
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
